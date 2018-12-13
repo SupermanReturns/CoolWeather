@@ -55,6 +55,15 @@ public class WeatherActivity extends Activity  implements OnClickListener {
     private Button refreshWeather;
 
 
+    /**
+     * 切换城市按钮 */
+    private Button switchCity;
+    /**
+     * 更新天气按钮
+     */
+    private Button refreshWeather;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +79,11 @@ public class WeatherActivity extends Activity  implements OnClickListener {
         switchCity = (Button) findViewById(R.id.switch_city);
         refreshWeather = (Button) findViewById(R.id.refresh_weather);
         String countyCode = getIntent().getStringExtra("county_code");
+
+        switchCity = (Button) findViewById(R.id.switch_city);
+        refreshWeather = (Button) findViewById(R.id.refresh_weather);
+        switchCity.setOnClickListener(this);
+        refreshWeather.setOnClickListener(this);
 
         if (!TextUtils.isEmpty(countyCode)){
             // 有县级代号时就去查询天气
